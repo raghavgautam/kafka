@@ -198,10 +198,9 @@ class KafkaService(KafkaPathResolverMixin, JmxMixin, Service):
         cmd = "export JMX_PORT=%d; " % self.jmx_port
         cmd += "export KAFKA_LOG4J_OPTS=\"-Dlog4j.configuration=file:%s\"; " % self.LOG4J_CONFIG
         cmd += "export KAFKA_OPTS=%s; " % self.security_config.kafka_opts
-        cmd += "%s %s 1>> %s 2>> %s &" % \
+        cmd += "%s %s 1>> %s 2>&1 &" % \
                (self.path.script("kafka-server-start.sh", node),
                 KafkaService.CONFIG_FILE,
-                KafkaService.STDOUT_STDERR_CAPTURE,
                 KafkaService.STDOUT_STDERR_CAPTURE)
         return cmd
 

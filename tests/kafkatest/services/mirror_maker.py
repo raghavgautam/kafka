@@ -137,7 +137,7 @@ class MirrorMaker(KafkaPathResolverMixin, Service):
         if self.blacklist is not None:
             cmd += " --blacklist=\"%s\"" % self.blacklist
 
-        cmd += " 1>> %s 2>> %s &" % (MirrorMaker.LOG_FILE, MirrorMaker.LOG_FILE)
+        cmd += " 1>> %s 2>&1 &" % MirrorMaker.LOG_FILE
         return cmd
 
     def pids(self, node):

@@ -36,7 +36,7 @@ cat<<EOF
 EOF
 
 for K in $(seq -w 02 ${KAFKA_NUM_CONTAINERS}); do
-  KNODE="knode${K}"
+  KNODE="knode${K}.knw"
   if [ $K -eq ${KAFKA_NUM_CONTAINERS} ]; then
     SUFFIX=""
   else
