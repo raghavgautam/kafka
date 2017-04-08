@@ -63,6 +63,8 @@ for i in $(seq -w 1 ${KAFKA_NUM_CONTAINERS}); do
   echo knode${i}
   docker exec knode01 bash -c "ssh knode$i hostname"
 done
-
+# tests/kafkatest/tests/core/throttling_test.py
+# tests/kafkatest/tests/core/security_rolling_upgrade_test.py
+#TC_PATHS=tests/kafkatest/tests/core/security_rolling_upgrade_test.py
 bash tests/cluster_file_generator.sh > tests/cluster_file.json
 docker exec knode01 bash -c "cd /opt/kafka-dev; ducktape ${_DUCKTAPE_OPTIONS} --cluster-file tests/cluster_file.json ${TC_PATHS:-tests/kafkatest/tests}"

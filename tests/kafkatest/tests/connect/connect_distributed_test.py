@@ -270,7 +270,7 @@ class ConnectDistributedTest(Test):
                        err_msg="Failed to see connector transition to the RUNNING state")
 
         # after resuming, we should see records consumed again
-        wait_until(lambda: len(self.sink.received_messages()) > num_messages, timeout_sec=30,
+        wait_until(lambda: len(self.sink.received_messages()) > num_messages, timeout_sec=90,
                    err_msg="Failed to consume messages after resuming sink connector")
 
     @cluster(num_nodes=5)

@@ -91,7 +91,7 @@ class Log4jAppenderTest(Test):
             timeout_sec=10, backoff_sec=.2, err_msg="Consumer was too slow to start")
 
         # Verify consumed messages count
-        wait_until(lambda: self.messages_received_count == MAX_MESSAGES, timeout_sec=10,
+        wait_until(lambda: self.messages_received_count == MAX_MESSAGES, timeout_sec=30,
                    err_msg="Timed out waiting to consume expected number of messages.")
 
         self.consumer.stop()

@@ -69,7 +69,7 @@ class ThrottlingTest(ProduceConsumeValidateTest):
                                       }
                                   })
         self.producer_throughput = 1000
-        self.timeout_sec = 400
+        self.timeout_sec = 1000
         self.num_records = 2000
         self.record_size = 4096 * 100  # 400 KB
         # 1 MB per partition on average.

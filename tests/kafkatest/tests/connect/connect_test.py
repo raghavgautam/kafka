@@ -104,7 +104,7 @@ class ConnectStandaloneFileTest(Test):
 
         # Generating data on the source node should generate new records and create new output on the sink node
         self.source.node.account.ssh("echo -e -n " + repr(self.FIRST_INPUT) + " >> " + self.INPUT_FILE)
-        wait_until(lambda: self.validate_output(self.FIRST_INPUT), timeout_sec=60, err_msg="Data added to input file was not seen in the output file in a reasonable amount of time.")
+        wait_until(lambda: self.validate_output(self.FIRST_INPUT), timeout_sec=120, err_msg="Data added to input file was not seen in the output file in a reasonable amount of time.")
 
         # Restarting both should result in them picking up where they left off,
         # only processing new data.

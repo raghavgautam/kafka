@@ -175,7 +175,7 @@ class ConnectServiceBase(KafkaPathResolverMixin, Service):
         else:
             return resp.json()
 
-    def _rest_with_retry(self, path, body=None, node=None, method="GET", retries=40, retry_backoff=.25):
+    def _rest_with_retry(self, path, body=None, node=None, method="GET", retries=40, retry_backoff=1):
         """
         Invokes a REST API with retries for errors that may occur during normal operation (notably 409 CONFLICT
         responses that can occur due to rebalancing).
